@@ -1,0 +1,24 @@
+{
+  "name": "node-crud",
+  "version": "1.0.0",
+  "description": "Simple node crud app with mysql and docker.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Manjil Tamang",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bootstrap": "^3.3.7",
+    "dateformat": "^3.0.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-partials": "^0.3.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "mysql": "^2.16.0",
+    "tether": "^1.4.5"
+  }
+}

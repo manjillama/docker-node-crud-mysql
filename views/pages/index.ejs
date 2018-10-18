@@ -1,0 +1,41 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <a href="/event/add" class="btn btn-success btn-lg">Add new event</a>
+      <br/><br/>
+    </div>
+    <div class="col-md-12">
+      <% if(items.length > 0) { %>
+        <table class="table table-hover">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th colspan="2">Actions</th>
+          </tr>
+          <% items.forEach(function(item, index){ %>
+            <tr>
+              <td><%= item.e_id %></td>
+              <td><%= item.e_name %></td>
+              <td><%= item.e_desc %></td>
+              <td><%= item.e_location %></td>
+              <td>
+                <a href="/event/edit/<%= item.e_id %>" class="btn btn-sm btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              </td>
+              <td>
+                <a href="/event/delete/<%= item.e_id %>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              </td>
+            </tr>
+          <% }) %>
+        </table>
+      <% }else{ %>
+        <p><strong>Sorry, no records available yet :( </strong></p>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer.ejs %>

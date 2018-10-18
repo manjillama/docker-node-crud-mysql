@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app:
+    container_name: docker-node-mysql
+    restart: always
+    build: .
+    ports:
+      - "8080:3000"
+    links:
+      - mysql-dev
+
+  mysql-dev:
+    container_name: mysql-container
+    image: mysql:8.0.2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: node_crud
+    ports:
+      - "3306:3306"
