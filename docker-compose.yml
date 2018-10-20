@@ -8,6 +8,8 @@ services:
       - "8080:3000"
     links:
       - mysql-dev
+    depends_on:
+      - mysql-dev
     restart: always
     command: npm start
 
