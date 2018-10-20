@@ -18,4 +18,13 @@ volumes: ['./:/usr/src/app']
 # To re-build
 docker-compose --build
 ```
+## Normal Start
+You can start node application with usual 'npm start' command as well.
+* Make sure to edit server.js and update the host with your host address. 
+* App uses default 3306 database connectivity port.
+* Create database with the name 'node_crud'.
+
+"Happy coding :)"
+
+
 
