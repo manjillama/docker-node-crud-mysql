@@ -42,6 +42,7 @@ const conn = mysql.createConnection({
 
 conn.connect(function(err) {
   if (err){
+    // Server will restart until database connection succeds 
     console.log('Cannot connect with database');
   }else{
     conn.query('CREATE TABLE IF NOT EXISTS events( e_id INT NOT NULL AUTO_INCREMENT, e_name VARCHAR(100) NOT NULL, e_start_date DATE NOT NULL, e_end_date DATE NOT NULL, e_added_date DATE, e_modified_date DATE, e_desc TEXT, e_location VARCHAR(200), PRIMARY KEY(e_id))');
