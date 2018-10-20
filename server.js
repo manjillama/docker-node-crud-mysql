@@ -42,6 +42,7 @@ const conn = mysql.createConnection({
 
 conn.connect(function(err) {
   if (err){
+    // Server will restart until database connection succeds 
     console.log('Cannot connect with database');
   }else{
     // Docker container will restart if database is not yet ready for connectivity
@@ -66,32 +67,7 @@ conn.connect(function(err) {
       });
     });
 
-    /* Show add page */
-    app.get('/event/add', function(req, res){
-      res.render('pages/add-event', {
-        siteTitle: siteTitle,
-        pageTitle: 'Add new event',
-        items: ''
-      });
-    });
 
-    /* Post event to database */
-    app.post('/event/add', function(req, res){
-      /*
-      ** Get the record
-      */
-      var query = 'INSERT INTO events ( e_name, e_start_date, e_end_date,e_added_date, e_desc, e_location) values (';
-      query += ' "'+req.body.e_name+'", ';
-      query += ' "'+dateFormat(req.body.e_start_date, "yyyy-mm-dd")+'", ';
-      query += ' "'+dateFormat(req.body.e_end_date, "yyyy-mm-dd")+'", ';
-      query += ' "'+dateFormat(now, "yyyy-mm-dd")+'", ';
-      query += ' "'+req.body.e_desc+'", ';
-      query += ' "'+req.body.e_location+'"';
-      query += ' )';
-      conn.query(query, function(err, result){
-        res.redirect('/');
-      });
-    });
 
     /* Event edit page */
     app.get('/event/edit/:id', function(req, res){

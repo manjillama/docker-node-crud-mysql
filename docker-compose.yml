@@ -1,15 +1,12 @@
-version: '2'
+version: '3'
 
 services:
-  web:
+  app:
     container_name: docker-node-mysql
     build: .
-    volumes:
-      - .:/usr/src/app/
-      - /usr/src/app/node_modules
     ports:
       - "8080:3000"
-    depends_on:
+    links:
       - mysql-dev
     restart: always
     command: npm start
